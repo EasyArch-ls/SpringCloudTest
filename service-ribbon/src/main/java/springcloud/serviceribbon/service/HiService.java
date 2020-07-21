@@ -4,20 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-/**
- * Demo class
- *
- * @author ls
- * @date 20-7-21
- */
+/***
+ * @Author: lisheng
+ * @Date: 2020/7/21
+ * @Time: 上午10:54
+ * @Description:
+ ***/
 @Service
-public class HelloService {
-
+public class HiService {
     @Autowired
     RestTemplate restTemplate;
 
-    public String hiService(String name) {
-        return restTemplate.getForObject("http://SERVICE-HI/hi?name="+name,String.class);
+    public String hiService(String name){
+        return  restTemplate.getForObject("http://SERVICE-HI/hi?name="+name,String.class);
     }
-
 }
