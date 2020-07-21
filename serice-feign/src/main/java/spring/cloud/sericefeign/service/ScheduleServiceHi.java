@@ -4,6 +4,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import spring.cloud.sericefeign.service.impl.ScheduleServiceHiImpl;
 
 /***
  * @Author: lisheng
@@ -11,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Time: 上午11:09
  * @Description:
  ***/
-@FeignClient(value = "service-hi")
+//@FeignClient(value = "service-hi")
+@FeignClient(value = "service-hi",fallback = ScheduleServiceHiImpl.class )
 public interface ScheduleServiceHi {
     /**
      * @param name 用户名

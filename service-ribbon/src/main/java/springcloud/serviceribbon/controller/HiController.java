@@ -1,5 +1,6 @@
 package springcloud.serviceribbon.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,8 +19,13 @@ public class HiController {
     @Autowired
     HiService hiservice;
 
+    @HystrixCommand(fallbackMethod = "hiError")
     @RequestMapping(value = "hi", method = RequestMethod.GET)
     public String hi(@RequestParam String name) {
         return hiservice.hiService(name);
+    }
+
+    public String hiError(String name) {
+        return "hi" + "\t" + name + "sorry error";
     }
 }
