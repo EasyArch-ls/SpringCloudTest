@@ -1,21 +1,19 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/EasyArch-ls/SpringCloudTest/
+          search-paths: respo
+          default-label: master
+          username:
+          password:
 
-  spring:
-    application:
-      name: config-server
-    cloud:
-      config:
-        server:
-          git:
-            uri: https://github.com/EasyArch-ls/SpringCloudTest/
-            search-paths: respo
-            default-label: master
-            username:
-            password:
-
-  server:
-    port: 8889
-  eureka:
-    client:
-      serviceUrl:
-        defaultZone: http://localhost:8761/eureka/
-
+server:
+  port: 8889
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
